@@ -1,0 +1,19 @@
+{
+	"servers": {
+		"mcp-server": {
+			"type": "stdio",
+			"command": "<uvPath>",
+			"args": [
+				"run",
+				"main.py"
+			]
+		}
+	},
+	"inputs": [
+		{
+			"type": "promptString",
+			"id": "mcp-server-fetch",
+			"description": "MCP Server Fetch Command"
+		}
+	]
+}

@@ -4,6 +4,8 @@ The Model Context Protocol (MCP) Server is a server implementation that adheres 
 
 Reference [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk)
 
+This project aims to **provide an example of a simple custom MCP server** that can be used locally with tools like Copilot Chat. It demonstrates how to set up a server that can respond to requests and manage context information for clients.
+
 ## Features
 
 - **Context Management**: The MCP Server manages context information for each client, allowing models to access relevant data and state information.
@@ -36,6 +38,52 @@ Add MCP to the project dependencies:
 ```bash
 $ uv add "mcp[cli]"
 ```
+
+**Test the MCP Server**
+You can test the MCP Server by running the following command:
+```bash
+$ uv run mcp dev main.py
+```
+
+## Run the MCP Server
+
+For integration with Copilot Chat, we need to create `.vscode/mcp.json` in the project root with the following content to the `servers` section
+```json
+"mcp-server": {
+    "type": "stdio",
+    "command": "<uvPath>",
+    "args": [
+        "run",
+        "main.py"
+    ]
+}
+```
+
+Then you can add the MCP resource to Copilot chat.. after that Copilot will have access to the defined resources and tools.
+
+Here is an example of Copilot interacting with the greeting tool.
+```
+Hello, Ken! 🎉
+
+I can see your MCP server is working beautifully - it just provided me with a 
+personalized greeting for you! It's fantastic to see your Model Context 
+Protocol server in action, dynamically generating content based on context.
+
+Your MCP server setup looks solid with UV package management, and it's clearly
+functioning well if it's able to serve up dynamic greetings through the protocol. 
+This is exactly the kind of extensible, context-aware functionality that makes MCP 
+so powerful!
+
+What would you like to explore or build next with your MCP server, Ken? Whether 
+it's adding more dynamic resources, enhancing the greeting functionality, or 
+working on other features, I'm here to help! 🚀
+```
+
+To run the MCP Server manually, use the following command:
+```bash
+$ uv run mcp install main
+```
+
 
 ## API Reference
 
