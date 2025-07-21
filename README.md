@@ -81,7 +81,11 @@ working on other features, I'm here to help! 🚀
 
 To run the MCP Server manually, use the following command:
 ```bash
+// With Claude
 $ uv run mcp install main
+
+// Else
+$ uv run main.py
 ```
 
 
