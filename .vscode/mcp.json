@@ -7,13 +7,27 @@
 				"run",
 				"main.py"
 			]
+		},
+		"perplexity-server": {
+			"type": "stdio",
+			"command": "npx",
+			"args": ["-y", "server-perplexity-ask"],
+			"env": {
+				"PERPLEXITY_API_KEY": "${input:perplexity-key}"
+			}
 		}
 	},
 	"inputs": [
 		{
 			"type": "promptString",
-			"id": "mcp-server-fetch",
+			"id": "mcp-server",
 			"description": "MCP Server Fetch Command"
+		},
+		{
+			"type": "promptString",
+			"id": "perplexity-key",
+			"description": "Perplexity API Key",
+			"password": true
 		}
 	]
 }
